@@ -1,2 +1,1 @@
-# blog
-Encyclopedia Galactica
+#Encyclopedia Galactica
