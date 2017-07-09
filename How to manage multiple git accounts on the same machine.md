@@ -48,3 +48,24 @@ $ ssh-add id_rsa_work
 Identity added: id_rsa_work (id_rsa_work)
 #test using ssh-add -l
 ```
+
+* Clone a repo
+```
+git clone git@personal:robbinalexander/blog.git
+```
+
+* Commit and push
+Git 2.13 introduced conditional includes, which helps you create different user profiles based on different working directories. For eg., you can setup git to use your work email when you are in the work directory (or sub-directories).
+```
+$ git config --global --edit
+[includeif "gitdir:~/work/"]
+  path = ~/work/.gitconfig
+[includeif "gitdir:~/sandbox/"]
+  path = ~/sandbox/.gitconfig
+  
+$ cat ~/sandbox/.gitconfig
+[user]
+name=Robbin Alexander
+email=<personal-email-address>
+```
+Remove the default user section from the global git config, and this will allow you to enforce a local user config.
